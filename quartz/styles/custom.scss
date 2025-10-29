@@ -2,20 +2,22 @@
 
 // put your custom CSS here!
 * {
-  direction: rtl;
+    direction: rtl;
 }
- 
+
 figure[data-rehype-pretty-code-figure] * {
-  direction: ltr;
+    direction: ltr;
 }
- 
+
 .ltr,
 .ltr * {
-  direction: ltr;
+    direction: ltr;
 }
 
 math * {
     direction: ltr;
 }
 
-.MathJax { font-size: 1.35em; }
+.MathJax {
+    font-size: 1.35em;
+}
