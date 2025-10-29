@@ -13,3 +13,7 @@ figure[data-rehype-pretty-code-figure] * {
 .ltr * {
   direction: ltr;
 }
+
+math * {
+    direction: ltr;
+}
