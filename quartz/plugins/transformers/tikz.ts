@@ -17,7 +17,7 @@ interface TikzNode {
   parent: MdRoot
 }
 
-export const TikzJax: QuartzTransformerPlugin = () => {
+export const TikzJax: QuartzTransformerPlugin<Partial<Argv>> = (opts) => {
   return {
     name: "TikzJax",
     markdownPlugins({ argv }) {
@@ -32,7 +32,7 @@ export const TikzJax: QuartzTransformerPlugin = () => {
 
           for (let i = 0; i < nodes.length; i++) {
             const { index, parent, value } = nodes[i]
-            let svg = await tex2svg(value, argv)
+            let svg = await tex2svg(value, { ...argv, verbose: opts?.verbose ?? false })
             svg = svg
               .replaceAll(/("#000"|"black")/g, `"currentColor"`)
               .replaceAll(/("#fff"|"white")/g, `"var(--background-primary)"`)
