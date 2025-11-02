@@ -73,7 +73,6 @@ const config: QuartzConfig = {
       Plugin.Description(),
       Plugin.Latex({ renderEngine: "mathjax" }),
       Plugin.HardLineBreaks(),
-
     ],
     filters: [Plugin.RemoveDrafts()],
     emitters: [
@@ -92,6 +91,7 @@ const config: QuartzConfig = {
       Plugin.NotFoundPage(),
       // Comment out CustomOgImages to speed up build time
       Plugin.CustomOgImages(),
+      Plugin.tikz(),
     ],
   },
 }
