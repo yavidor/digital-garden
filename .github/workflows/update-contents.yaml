@@ -6,8 +6,6 @@ on: workflow_call
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 concurrency:
   group: "auto"
@@ -18,6 +16,8 @@ jobs:
     uses: ./.github/workflows/deploy.yaml
     permissions:
       contents: write
+      pages: write
+      id-token: write
 
   push:
     needs: deploy-reusable
