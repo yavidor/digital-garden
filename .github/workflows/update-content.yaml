@@ -1,0 +1,26 @@
+name: Update contents
+
+on:
+  workflow_call:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: "auto"
+  cancel-in-progress: false
+
+jobs:
+  deploy-reusable:
+    uses: ./.github/workflows/deploy.yaml
+    permissions:
+    contents: write
+
+  push:
+    needs: deploy-reusable
+    runs-on: ubuntu-latest
+    steps:
+      - name: Push to GitHub
+        id: push
+        run: |
+          git status
