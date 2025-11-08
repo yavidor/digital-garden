@@ -14,7 +14,7 @@ jobs:
   deploy-reusable:
     uses: ./.github/workflows/deploy.yaml
     permissions:
-    contents: write
+      contents: write
 
   push:
     needs: deploy-reusable
