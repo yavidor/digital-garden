@@ -22,9 +22,6 @@ jobs:
     secrets:
       NOTES_ACCESS_TOKEN: ${{ secrets.NOTES_ACCESS_TOKEN }}
 
-  push:
-    needs: deploy-reusable
-    runs-on: ubuntu-latest
     steps:
       - name: Push to GitHub
         id: push
