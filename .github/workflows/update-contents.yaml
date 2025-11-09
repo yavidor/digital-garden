@@ -19,6 +19,8 @@ jobs:
       contents: write
       pages: write
       id-token: write
+    secrets:
+      NOTES_ACCESS_TOKEN: ${{ secrets.NOTES_ACCESS_TOKEN }}
 
   push:
     needs: deploy-reusable
