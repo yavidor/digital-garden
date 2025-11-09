@@ -26,7 +26,6 @@ jobs:
     needs: deploy-reusable
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with:
           name: repo
@@ -34,4 +33,5 @@ jobs:
       - name: Push to GitHub
         id: push
         run: |
+          ls -lah .
           git status
