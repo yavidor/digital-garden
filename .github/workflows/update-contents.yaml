@@ -23,6 +23,8 @@ jobs:
       NOTES_ACCESS_TOKEN: ${{ secrets.NOTES_ACCESS_TOKEN }}
 
   push:
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     needs: deploy-reusable
     runs-on: ubuntu-latest
     steps:
