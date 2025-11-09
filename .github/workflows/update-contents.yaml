@@ -35,5 +35,6 @@ jobs:
         run: |
           ls -lah .
           git status
-          cd contents
+          git diff
+          cd content
           git status
