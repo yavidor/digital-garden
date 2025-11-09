@@ -38,3 +38,9 @@ jobs:
           git diff
           cd content
           git status
+          cd ..
+          git config --global user.name "GLR"
+          git config --global user.email "GLR@users.noreply.github.com"
+          git add content
+          git commit -m "Auto update of content [skip ci]"
+          git push
