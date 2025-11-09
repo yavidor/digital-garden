@@ -46,6 +46,11 @@ jobs:
         uses: actions/upload-pages-artifact@v4
         with:
           path: public
+      - name: Upload entire repo as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: repo
+          path: .
  
   deploy:
     needs: build
@@ -57,3 +62,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+    

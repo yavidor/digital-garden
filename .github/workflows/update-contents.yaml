@@ -22,7 +22,15 @@ jobs:
     secrets:
       NOTES_ACCESS_TOKEN: ${{ secrets.NOTES_ACCESS_TOKEN }}
 
+  push:
+    needs: deploy-reusable
+    runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: repo
+          path: .
       - name: Push to GitHub
         id: push
         run: |
