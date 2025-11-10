@@ -1,4 +1,0 @@
-[submodule "content"]
-	path = content
-	url = git@github.com:yavidor/obsidian.git
-	branch = main
