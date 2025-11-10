@@ -28,7 +28,7 @@ jobs:
           fetch-depth: 0 # Fetch all history for git info
 
       - name: Update submodules
-        run: git clone https://${{ secrets.NOTES_ACCESS_TOKEN }}:github.com/yavidor/obsidian.git 
+        run: git clone https://${{ secrets.NOTES_ACCESS_TOKEN }}@github.com/yavidor/obsidian.git 
 
       - uses: actions/setup-node@v6
         with:
