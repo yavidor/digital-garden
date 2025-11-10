@@ -33,6 +33,8 @@ jobs:
           name: repo
           path: .
       - name: Push to GitHub
+        permissions:
+          contents: write
         id: push
         run: |
           ls -lah .
