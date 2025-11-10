@@ -33,8 +33,6 @@ jobs:
           name: repo
           path: .
       - name: Push to GitHub
-        permissions:
-          contents: write
         id: push
         run: |
           ls -lah .
@@ -46,5 +44,6 @@ jobs:
           git config --global user.name "GLR"
           git config --global user.email "GLR@users.noreply.github.com"
           git add content
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
           git commit -m "Auto update of content [skip ci]"
           git push
