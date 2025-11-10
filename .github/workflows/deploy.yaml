@@ -1,11 +1,7 @@
 name: Deploy Quartz site to GitHub Pages
  
 on:
-  workflow_call:
-    secrets:
-      NOTES_ACCESS_TOKEN:
-        description: 'Access token to the notes repository'
-        required: true
+  workflow_dispatch:
   push:
     branches:
       - v4
