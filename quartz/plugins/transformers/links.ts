@@ -14,7 +14,7 @@ import { visit } from "unist-util-visit"
 import isAbsoluteUrl from "is-absolute-url"
 import { Root } from "hast"
 
-export interface Options {
+interface Options {
   /** How to resolve Markdown paths */
   markdownLinkResolution: TransformOptions["strategy"]
   /** Strips folders from a link so that it looks nice */
@@ -24,7 +24,7 @@ export interface Options {
   externalLinkIcon: boolean
 }
 
-export const defaultOptions: Options = {
+const defaultOptions: Options = {
   markdownLinkResolution: "absolute",
   prettyLinks: true,
   openLinksInNewTab: false,
