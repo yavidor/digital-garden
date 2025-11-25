@@ -87,6 +87,14 @@ export const FrontMatter: QuartzTransformerPlugin<Partial<Options>> = (userOpts)
               allSlugs.push(...file.data.aliases)
             }
 
+            if (data.uid != null && data.uid.toString() !== "") {
+              data.uid = data.uid.toString() as FullSlug
+              const aliases = file.data.aliases ?? []
+              aliases.push(data.uid)
+              file.data.aliases = aliases
+              allSlugs.push(data.uid)
+            }
+
             if (data.permalink != null && data.permalink.toString() !== "") {
               data.permalink = data.permalink.toString() as FullSlug
               const aliases = file.data.aliases ?? []
