@@ -18,7 +18,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-22.04
-    environment:
+    env:
       THEME_NAME: catppuccin
     steps:
       - uses: actions/checkout@v5
