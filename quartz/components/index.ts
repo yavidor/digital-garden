@@ -1,3 +1,4 @@
+import Mindmap from "./Mindmap"
 import Content from "./pages/Content"
 import TagContent from "./pages/TagContent"
 import FolderContent from "./pages/FolderContent"
@@ -50,4 +51,5 @@ export {
   Comments,
   Flex,
   ConditionalRender,
+  Mindmap,
 }

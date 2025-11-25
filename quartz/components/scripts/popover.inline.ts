@@ -131,3 +131,4 @@ document.addEventListener("nav", () => {
     })
   }
 })
+export { mouseEnterHandler, clearActivePopover }

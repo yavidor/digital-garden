@@ -5,12 +5,18 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [],
+  afterBody: [
+    Component.Mindmap(), // view mode
+    Component.Mindmap({
+      mode: "global", // global portal
+      globalOptions: {}, // globalOptions
+    }),
+  ],
   footer: Component.Footer({
     links: {
       GitHub: "https://github.com/jackyzha0/quartz",
       "Discord Community": "https://discord.gg/cRFFHYye7t",
-      "My GitHub": "https://github.com/yavidor/digital-garden"
+      "My GitHub": "https://github.com/yavidor/digital-garden",
     },
   }),
 }
@@ -37,6 +43,7 @@ export const defaultContentPageLayout: PageLayout = {
         },
         { Component: Component.Darkmode() },
         { Component: Component.ReaderMode() },
+        { Component: Component.Mindmap({ mode: "button", localOptions: {} }) },
       ],
     }),
     Component.Explorer(),
