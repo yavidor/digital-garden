@@ -25,9 +25,9 @@ jobs:
         with:
           fetch-depth: 0 # Fetch all history for git info
 
-      - name: Clone notes
-        run: rm -rf content && git clone https://${{ secrets.NOTES_ACCESS_TOKEN }}@github.com/yavidor/obsidian.git content
-
+      # - name: Clone notes
+      #   run: rm -rf content && git clone https://${{ secrets.NOTES_ACCESS_TOKEN }}@github.com/yavidor/obsidian.git content
+      #
       - uses: actions/setup-node@v6
         with:
           node-version: 22
@@ -37,6 +37,7 @@ jobs:
 
       - name: Fetch Quartz Theme
         run: curl -s -S https://raw.githubusercontent.com/saberzero1/quartz-themes/master/action.sh | bash -s -- $THEME_NAME
+
       - name: Build Quartz
         run: npx quartz build
 
