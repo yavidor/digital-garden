@@ -94,6 +94,13 @@ export const FrontMatter: QuartzTransformerPlugin<Partial<Options>> = (userOpts)
               file.data.aliases = aliases
               allSlugs.push(data.permalink)
             }
+            if (data.uid != null && data.uid.toString() !== "") {
+              data.uid = data.uid.toString() as FullSlug
+              const aliases = file.data.aliases ?? []
+              aliases.push(data.uid)
+              file.data.aliases = aliases
+              allSlugs.push(data.uid)
+            }
 
             const cssclasses = coerceToArray(coalesceAliases(data, ["cssclasses", "cssclass"]))
             if (cssclasses) data.cssclasses = cssclasses
