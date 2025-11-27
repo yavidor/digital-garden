@@ -35,6 +35,13 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
+      # It's not really a secret
+      - name: Prepare Environment Secrets
+        env:
+          GOATCOUNTER_CODE: ${{ secrets.GOATCOUNTER_CODE }}
+        run: |
+          sed -i "s/GOATCOUNTER_SECRET_HERE/${GOATCOUNTER_CODE}/g" quartz.config.ts 
+
       - name: Fetch Quartz Theme
         run: curl -s -S https://raw.githubusercontent.com/saberzero1/quartz-themes/master/action.sh | bash -s -- $THEME_NAME
 
