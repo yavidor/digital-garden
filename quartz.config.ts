@@ -71,7 +71,7 @@ const config: QuartzConfig = {
       Plugin.Description(),
       Plugin.Latex({ renderEngine: "mathjax" }),
       Plugin.HardLineBreaks(),
-      Plugin.TikzJax(),
+      Plugin.TikzJax({ verbose: true }),
     ],
     filters: [Plugin.RemoveDrafts()],
     emitters: [
