@@ -14,7 +14,7 @@ const config: QuartzConfig = {
     enablePopovers: true,
     analytics: { provider: "goatcounter", websiteId: "GOATCOUNTER_SECRET_HERE" },
     locale: "en-US",
-    baseUrl: "yonatan.avidor.org",
+    baseUrl: "yonatan.avidor.org/digital-garden",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "modified",
     theme: {
