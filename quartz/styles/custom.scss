@@ -1,5 +1,8 @@
 @use "./base.scss";
 
+.tikz > * {
+  direction: ltr;
+}
 // put your custom CSS here!
 * {
     direction: rtl;
@@ -30,6 +33,4 @@ math * {
   fill: currentColor;
 }
 
-.tikz > * {
-  direction: ltr;
-}
+
