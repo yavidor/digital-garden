@@ -28,5 +28,8 @@ math * {
   margin: 1.5em 0;
   text-align: center;
   fill: currentColor;
+}
+
+.tikz > text {
   direction: ltr;
 }
