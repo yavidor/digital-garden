@@ -1,20 +1,20 @@
 name: Deploy Quartz site to GitHub Pages
- 
+
 on:
   workflow_dispatch:
   push:
     branches:
       - v4
- 
+
 permissions:
   contents: write
   pages: write
   id-token: write
- 
+
 concurrency:
   group: "pages"
   cancel-in-progress: false
- 
+
 jobs:
   build:
     runs-on: ubuntu-22.04
@@ -40,7 +40,7 @@ jobs:
         env:
           GOATCOUNTER_CODE: ${{ secrets.GOATCOUNTER_CODE }}
         run: |
-          sed -i "s/GOATCOUNTER_SECRET_HERE/${GOATCOUNTER_CODE}/g" quartz.config.ts 
+          sed -i "s/GOATCOUNTER_SECRET_HERE/${GOATCOUNTER_CODE}/g" quartz.config.ts
 
       - name: Fetch Quartz Theme
         run: curl -s -S https://raw.githubusercontent.com/saberzero1/quartz-themes/master/action.sh | bash -s -- $THEME_NAME
@@ -52,7 +52,7 @@ jobs:
         uses: actions/upload-pages-artifact@v4
         with:
           path: public
- 
+
   deploy:
     needs: build
     environment:
@@ -63,5 +63,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-    
