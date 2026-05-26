@@ -69,7 +69,7 @@ const config: QuartzConfig = {
       Plugin.TableOfContents(),
       Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }),
       Plugin.Description(),
-      Plugin.Latex({ renderEngine: "mathjax" }),
+      Plugin.Latex({ renderEngine: "katex" }),
       Plugin.HardLineBreaks(),
       // Plugin.TikzJax({ verbose: true }),
       Plugin.TikzJax(),
