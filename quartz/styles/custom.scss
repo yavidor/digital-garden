@@ -26,13 +26,14 @@ math * {
   display: block;
   margin: 1.5em 0;
   text-align: center;
-  // fill: currentColor;
+  // fill: currentColor!important;
+  // stroke: currentColor!important;
 }
 
 
 .tikz svg > g {
-  fill: currentColor;
-  stroke: currentColor;
+  // fill: currentColor;
+  // stroke: currentColor;
 }
 
 text {
