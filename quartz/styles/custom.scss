@@ -29,6 +29,11 @@ math * {
   fill: currentColor;
 }
 
+
+.tikz svg > g {
+  fill: currentColor;
+}
+
 text {
   direction: ltr;
 }
