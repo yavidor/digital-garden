@@ -35,8 +35,8 @@ body {
 
 p,
 ul,
-text[fill="none"]:not(.tikz text),
-text:not([fill]):not(.tikz text),
+text[fill="none"],
+text:not([fill]),
 a,
 tr,
 td,
