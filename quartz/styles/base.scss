@@ -35,8 +35,6 @@ body {
 
 p,
 ul,
-text[fill="none"],
-text:not([fill]),
 :not([fill]) > text:not([fill]),
 :not([fill]) > text[fill="none"],
 a,
