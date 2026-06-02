@@ -33,33 +33,9 @@ export const TikzJax: QuartzTransformerPlugin<Partial<Argv>> = (opts) => {
           for (let i = 0; i < nodes.length; i++) {
             const { index, parent, value } = nodes[i]
             let svg = await tex2svg(value, { ...argv, verbose: opts?.verbose ?? false })
-            console.log(svg)
             svg = svg
               .replaceAll(/("#000"|"black")/g, `"currentColor"`)
               .replaceAll(/("#fff"|"white")/g, `"var(--background-primary)"`)
-            // svg = svg.replace(/<([a-zA-Z]+)([^>]*?)(\/?)>/g, (match, tagName, attrs, closing) => {
-            //   if (
-            //     !/^(rect|circle|ellipse|path|polygon|polyline|line|g|text|use|marker|symbol|svg)$/i.test(
-            //       tagName,
-            //     )
-            //   )
-            //     return match
-            //   if (/\bfill\s*=/.test(attrs) || /\bstyle\s*=\s*"[^"]*\bfill\s*:/.test(attrs))
-            //     return match
-            //   return `<${tagName}${attrs}  fill="currentColor"${closing}>`
-            // })
-            // svg = svg.replace(/<([a-zA-Z]+)([^>]*?)(\/?)>/g, (match, tagName, attrs, closing) => {
-            //   if (
-            //     !/^(rect|circle|ellipse|path|polygon|polyline|line|g|text|use|marker|symbol|svg)$/i.test(
-            //       tagName,
-            //     )
-            //   )
-            //     return match
-            //   if (/\bstroke\s*=/.test(attrs) || /\bstyle\s*=\s*"[^"]*\bstroke\s*:/.test(attrs))
-            //     return match
-            //   return `<${tagName}${attrs} stroke="currentColor"${closing}>`
-            // })
-
             parent.children.splice(index, 1, {
               type: "html",
               value: `<div class="tikz">${svg}</div>`,
