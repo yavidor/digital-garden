@@ -35,11 +35,7 @@ body {
 
 p,
 ul,
-// :not([fill]) > text:not([fill]),
-// :not([fill]) > g:not([fill]) > text:not([fill]),
-// :not([fill]) > text[fill="none"],
 text:not([fill]:not([fill="none"]), [fill]:not([fill="none"]) *),
-// :not([fill]) > g:not([fill]) > text[fill="none"],
 a,
 tr,
 td,
