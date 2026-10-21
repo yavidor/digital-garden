@@ -5,9 +5,10 @@ configuration:
   enableSPA: true
   enablePopovers: true
   analytics:
-    provider: plausible
+    provider: {}
   locale: en-US
-  baseUrl: yonatan.avidor.org/digital-garden
+  # baseUrl: yonatan.avidor.org/digital-garden
+  baseUrl: "localhost:8080"
   ignorePatterns:
     - private
     - templates
@@ -234,7 +235,7 @@ plugins:
         GitHub: https://github.com/jackyzha0/quartz
         Discord Community: https://discord.gg/cRFFHYye7t
     layout:
-      position: footer
+      position: body
       priority: 50
   - source: "@quartz-community/recent-notes"
     enabled: false
@@ -285,7 +286,7 @@ layout:
         beforeBody: []
         left: []
         right: []
-    content: {}
+    # content: {}
     folder:
       exclude:
         - reader-mode
