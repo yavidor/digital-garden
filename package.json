@@ -108,7 +108,7 @@
     "remark-rehype": "^11.1.2",
     "rfdc": "^1.4.1",
     "serve-handler": "^6.1.6",
-    "sharp": "^0.34.5",
+    "sharp": "^0.35.5",
     "source-map-support": "^0.5.21",
     "to-vfile": "^8.0.0",
     "unified": "^11.0.5",
@@ -135,8 +135,8 @@
   },
   "allowScripts": {
     "@parcel/watcher": true,
+    "sharp@0.34.5": true,
     "esbuild@0.27.7": true,
-    "esbuild@0.28.1": true,
-    "sharp@0.34.5": true
+    "esbuild@0.28.2": true
   }
 }
