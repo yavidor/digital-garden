@@ -1,14 +1,14 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
-  pageTitle: Quartz 5
+  pageTitle: "yavidor's digital garden"
   pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true
   analytics:
-    provider: {}
+    provider: "goatcounter"
+    websiteId: "GOATCOUNTER_SECRET_HERE"
   locale: en-US
-  # baseUrl: yonatan.avidor.org/digital-garden
-  baseUrl: "localhost:8080"
+  baseUrl: yonatan.avidor.org/digital-garden
   ignorePatterns:
     - private
     - templates
@@ -147,7 +147,7 @@ plugins:
   - source: "@quartz-community/favicon"
     enabled: true
   - source: "@quartz-community/og-image"
-    enabled: false
+    enabled: true
   - source: "@quartz-community/cname"
     enabled: true
   - source: "@quartz-community/canvas-page"
@@ -238,7 +238,7 @@ plugins:
       position: body
       priority: 50
   - source: "@quartz-community/recent-notes"
-    enabled: false
+    enabled: true
   - source: "@quartz-community/spacer"
     enabled: true
     options: {}

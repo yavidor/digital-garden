@@ -23,17 +23,12 @@ math * {
   font-size: 1.35em;
 }
 
-.tikz {
+.tikz-diagram {
   display: block;
   margin: 1.5em 0;
   text-align: center;
   // fill: currentColor!important;
   // stroke: currentColor!important;
-}
-
-.tikz svg > g {
-  // fill: currentColor;
-  // stroke: currentColor;
 }
 
 text {
