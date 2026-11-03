@@ -272,7 +272,7 @@ plugins:
     enabled: true
     options:
       showConsole: true
-      embedFontCss: true
+      # embedFontCss: true
     order: 19
 layout:
   groups:
