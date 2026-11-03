@@ -7,8 +7,13 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  deployments: write
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -47,6 +52,15 @@ jobs:
 
       - name: Check types and style
         run: npm run check
+
+      - name: Clone notes
+        run: rm -rf content && git clone --depth 1 https://${{ secrets.NOTES_ACCESS_TOKEN }}@github.com/yavidor/obsidian.git content
+
+      - name: Prepare Environment Secrets
+        env:
+          GOATCOUNTER_CODE: ${{ secrets.GOATCOUNTER_CODE }}
+        run: |
+          sed -i "s/GOATCOUNTER_SECRET_HERE/${GOATCOUNTER_CODE}/g" quartz.config.yaml
 
       - name: Build Quartz
         run: npx quartz build -d docs -v
