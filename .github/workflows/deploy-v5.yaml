@@ -63,7 +63,7 @@ jobs:
           sed -i "s/GOATCOUNTER_SECRET_HERE/${GOATCOUNTER_CODE}/g" quartz.config.yaml
 
       - name: Build Quartz
-        run: npx quartz build -d docs -v
+        run: npx quartz build -d content -v
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
