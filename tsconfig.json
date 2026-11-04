@@ -2,9 +2,9 @@
   "compilerOptions": {
     "lib": ["esnext", "DOM", "DOM.Iterable"],
     "experimentalDecorators": true,
-    "module": "esnext",
-    "target": "esnext",
-    "moduleResolution": "node",
+    "module": "nodenext",
+    "target": "nodenext",
+    "moduleResolution": "nodenext",
     "strict": true,
     "incremental": true,
     "resolveJsonModule": true,
