@@ -251,7 +251,8 @@ plugins:
     enabled: true
     options: {}
     order: 50
-  - source: "@quartz-community/note-properties"
+  # - source: "@quartz-community/note-properties"
+  - source: github:yavidor/note-properties
     enabled: true
     options:
       includeAll: false
