@@ -1,6 +1,12 @@
 {
   "version": "1.0.0",
   "plugins": {
+    "note-properties": {
+      "source": "github:yavidor/note-properties",
+      "resolved": "https://github.com/yavidor/note-properties.git",
+      "commit": "e8b4ed993fbe8202478b72057b8ba810ab0fdc16",
+      "installedAt": "2026-11-08T10:44:49.537Z"
+    },
     "quartikz": {
       "source": "github:SongHanseo/quartikz",
       "resolved": "https://github.com/SongHanseo/quartikz.git",
