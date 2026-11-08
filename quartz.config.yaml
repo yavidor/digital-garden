@@ -280,9 +280,9 @@ plugins:
       display: all
   - source: github:SongHanseo/quartikz
     enabled: true
-    options:
-      showConsole: true
-      # embedFontCss: true
+    # options:
+    # showConsole: true
+    # embedFontCss: true
     order: 19
 layout:
   groups:
