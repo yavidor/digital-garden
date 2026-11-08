@@ -166,6 +166,13 @@ plugins:
   - source: "@quartz-community/graph"
     enabled: true
     # depth: 3
+    options:
+      localGraph:
+        removeTags:
+          - "תואר"
+      globalGraph:
+        removeTags:
+          - "תואר"
     layout:
       position: right
       priority: 10
