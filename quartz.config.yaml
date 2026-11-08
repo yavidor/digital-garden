@@ -168,9 +168,11 @@ plugins:
     # depth: 3
     options:
       localGraph:
+        showTags: false
         removeTags:
           - "תואר"
       globalGraph:
+        showTags: false
         removeTags:
           - "תואר"
     layout:
