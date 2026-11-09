@@ -4,8 +4,8 @@
     "note-properties": {
       "source": "github:yavidor/note-properties",
       "resolved": "https://github.com/yavidor/note-properties.git",
-      "commit": "e8b4ed993fbe8202478b72057b8ba810ab0fdc16",
-      "installedAt": "2026-11-08T10:44:49.537Z"
+      "commit": "81685cb9c3020834431b18b22f38234471f30131",
+      "installedAt": "2026-11-09T10:05:32.648Z"
     },
     "quartikz": {
       "source": "github:SongHanseo/quartikz",
