@@ -271,8 +271,8 @@ plugins:
         - aliases
       excludedProperties: []
       hidePropertiesView: false
-      delimiters: ---
-      language: yaml
+      aliasProperties:
+        - uid
     order: 5
     layout:
       position: beforeBody
