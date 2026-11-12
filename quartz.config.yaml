@@ -246,8 +246,8 @@ plugins:
     layout:
       position: body
       priority: 50
-  - source: "@quartz-community/recent-notes"
-    enabled: true
+  # - source: "@quartz-community/recent-notes"
+  # enabled: true
   - source: "@quartz-community/spacer"
     enabled: true
     options: {}
