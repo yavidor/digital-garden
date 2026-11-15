@@ -14,6 +14,14 @@ updates:
         update-types: ["version-update:semver-major"]
       - dependency-name: "unified"
         update-types: ["version-update:semver-major"]
+      # js-yaml v5 is ESM-only and no longer provides a default export, but Quartz's
+      # frontmatter transformer still imports it as `import yaml from "js-yaml"`.
+      - dependency-name: "js-yaml"
+        update-types: ["version-update:semver-major"]
+      # TypeScript 7 removed `moduleResolution: "node"` (used by this repo's tsconfig),
+      # so a compiler major needs a dedicated migration.
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
     groups:
       # Separated so a risky third-party major cannot block ecosystem updates.
       quartz-ecosystem:
