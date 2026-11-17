@@ -46,6 +46,8 @@ configuration:
   contentIndex:
     enableSiteMap: true
     enableRSS: true
+  frontmatter:
+    enabled: true
 plugins:
   - source: "@quartz-community/created-modified-date"
     enabled: true
