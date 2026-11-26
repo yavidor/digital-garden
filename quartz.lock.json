@@ -2,10 +2,10 @@
   "version": "1.0.0",
   "plugins": {
     "quartikz": {
-      "source": "github:SongHanseo/quartikz",
-      "resolved": "https://github.com/SongHanseo/quartikz.git",
-      "commit": "8946810260a798ea68c5933a3fdea95e0049028f",
-      "installedAt": "2026-10-21T13:01:09.073Z"
+      "source": "github:yavidor/quartikz",
+      "resolved": "https://github.com/yavidor/quartikz.git",
+      "commit": "a4b0567ce3717074809e293c2a83326170194da7",
+      "installedAt": "2026-11-26T14:57:55.320Z"
     }
   }
 }
