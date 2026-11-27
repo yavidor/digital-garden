@@ -1,6 +1,11 @@
 @use "./variables.scss" as *;
 @use "./base.scss";
 
+:root {
+  --nehoran-background: #050300;
+  --nehoran-terminal: #ffb000;
+}
+
 // put your custom CSS here!
 * {
   direction: rtl;
@@ -96,5 +101,13 @@ text {
     &[data-callout="rampant"] .callout-title {
       margin: 0;
     }
+  }
+}
+// Nehoran pages
+body[data-slug^="נהורן"] {
+
+  background-color var(--nehoran-background);
+  h1 {
+    color: var(--nehoran-terminal);
   }
 }
