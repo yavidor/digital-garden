@@ -3,7 +3,9 @@ import { toHtml } from "hast-util-to-html"
 import assert from "node:assert"
 import { renderTranscludes, pageResources, transformPageContent } from "./renderPage"
 import { Root, Element } from "hast"
-import { FullSlug } from "../util/path"
+import { FullSlug, setSlugOptions } from "../util/path"
+import { slugifyFilePath } from "@quartz-community/utils"
+import vm from "node:vm"
 import { GlobalConfiguration } from "../cfg"
 import { QuartzComponentProps } from "./types"
 import { StaticResources } from "../util/resources"
@@ -116,6 +118,48 @@ describe("renderTranscludes", () => {
     const bq = root.children[0] as Element
     const texts = JSON.stringify(bq.children)
     assert.ok(texts.includes("Target content"), "transcluded content should be inlined")
+  })
+
+  test("a block transclusion finds the block by its name and scopes its ^id", () => {
+    const block: Element = {
+      type: "element",
+      tagName: "p",
+      properties: { id: "^para-1" },
+      children: [
+        { type: "text", value: "Block text " },
+        {
+          type: "element",
+          tagName: "a",
+          properties: { href: "#^para-1" },
+          children: [{ type: "text", value: "self" }],
+        },
+      ],
+    }
+    const heading: Element = {
+      type: "element",
+      tagName: "h2",
+      properties: { id: "para-1" },
+      children: [{ type: "text", value: "Para 1" }],
+    }
+    const targetHtml: Root = { type: "root", children: [heading, block] }
+    const allFiles = [makePageData("target", targetHtml, { blocks: { "para-1": block } })]
+    const root: Root = {
+      type: "root",
+      children: [makeTranscludeBlockquote("target", "#^Para-1")],
+    }
+    renderTranscludes(
+      root,
+      cfg,
+      "current" as FullSlug,
+      makeComponentData(allFiles) as QuartzComponentProps,
+      new Set<FullSlug>(["current" as FullSlug]),
+    )
+    const html = toHtml(root)
+    assert.ok(html.includes("Block text"), html)
+    assert.ok(!html.includes("Para 1"), "the heading of the same name isn't transcluded")
+    const id = /<p id="([^"]+)"/.exec(html)?.[1]
+    assert.ok(id?.endsWith("^para-1") && id !== "^para-1", `scoped block id, got ${id}`)
+    assert.ok(html.includes(`href="#${id}"`), "the link inside points at the scoped id")
   })
 
   test("allows the same page to be embedded twice as siblings", () => {
@@ -457,6 +501,40 @@ describe("pageResources", () => {
       externalJs.src.startsWith("/quartz/"),
       `expected js src to start with /quartz/, got: ${externalJs.src}`,
     )
+  })
+
+  const inlineScript = (result: ReturnType<typeof pageResources>) =>
+    result.js
+      .filter((j) => j.contentType === "inline")
+      .map((j) => ("script" in j ? j.script : ""))
+      .join("\n")
+
+  test("slugs.stripDiacritics reaches scripts in the browser (#2410)", () => {
+    setSlugOptions({ stripDiacritics: true })
+    try {
+      const script = inlineScript(pageResources("." as FullSlug, emptyResources))
+      // run it as the page does; the global it sets is the one utils reads
+      const page = vm.createContext({
+        fetch: () => new Promise(() => {}),
+        location: { href: "https://x/" },
+        URL,
+      })
+      vm.runInContext(script.replace("window.", "globalThis."), page)
+      const set = vm.runInContext(
+        `JSON.stringify(globalThis[Symbol.for("@quartz-community/utils/slugOptions")])`,
+        page,
+      )
+      assert.strictEqual(set, JSON.stringify({ stripDiacritics: true }))
+      // same global as utils in this thread: a script with utils 1.3 slugs as the build does
+      assert.strictEqual(slugifyFilePath("české/čeština.md" as never), "ceske/cestina")
+    } finally {
+      setSlugOptions(undefined)
+    }
+  })
+
+  test("the default slug options write nothing to the page", () => {
+    const script = inlineScript(pageResources("." as FullSlug, emptyResources))
+    assert.ok(!script.includes("slugOptions"), script)
   })
 
   test("omits subpath prefix when baseDir is empty (serve mode)", () => {
